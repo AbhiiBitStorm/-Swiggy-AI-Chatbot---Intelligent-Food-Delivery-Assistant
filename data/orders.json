@@ -1,0 +1,60 @@
+{
+  "orders": [
+    {
+      "order_id": "ORD100000",
+      "customer_name": "Rahul",
+      "restaurant": "Domino's Pizza",
+      "items": ["Margherita Pizza x2", "Garlic Bread x1"],
+      "total": 527,
+      "status": "delivered",
+      "order_time": "2024-01-15 12:30",
+      "delivery_time": "2024-01-15 13:00",
+      "payment": "paid_online"
+    },
+    {
+      "order_id": "ORD100001",
+      "customer_name": "Priya",
+      "restaurant": "Biryani Blues",
+      "items": ["Chicken Biryani x1", "Raita x1"],
+      "total": 320,
+      "status": "preparing",
+      "order_time": "2024-01-15 14:00",
+      "expected_delivery": "45 minutes",
+      "payment": "paid_online"
+    },
+    {
+      "order_id": "ORD100002",
+      "customer_name": "Amit",
+      "restaurant": "Burger King",
+      "items": ["Whopper x1", "French Fries x2"],
+      "total": 387,
+      "status": "out_for_delivery",
+      "order_time": "2024-01-15 14:15",
+      "delivery_partner": "Raj Kumar",
+      "partner_phone": "9876543210",
+      "payment": "cash_on_delivery"
+    },
+    {
+      "order_id": "ORD100003",
+      "customer_name": "Sneha",
+      "restaurant": "Udupi Garden",
+      "items": ["Masala Dosa x2", "Filter Coffee x2"],
+      "total": 220,
+      "status": "cancelled",
+      "order_time": "2024-01-15 11:00",
+      "refund_status": "processed",
+      "payment": "paid_online"
+    },
+    {
+      "order_id": "ORD100004",
+      "customer_name": "Vijay",
+      "restaurant": "KFC",
+      "items": ["Chicken Bucket", "Pepsi"],
+      "total": 450,
+      "status": "delivered",
+      "order_time": "2024-01-15 13:00",
+      "delivery_time": "2024-01-15 13:35",
+      "payment": "paid_online"
+    }
+  ]
+}

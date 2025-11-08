@@ -1,0 +1,31 @@
+{
+  "menu_items": [
+    {
+      "restaurant_id": "REST001",
+      "items": [
+        {"name": "Margherita Pizza", "price": 199, "veg": true, "rating": 4.3, "description": "Classic cheese pizza"},
+        {"name": "Pepperoni Pizza", "price": 399, "veg": false, "rating": 4.5, "description": "Loaded with pepperoni"},
+        {"name": "Garlic Bread", "price": 129, "veg": true, "rating": 4.2, "description": "Crispy garlic bread"},
+        {"name": "Pasta Alfredo", "price": 249, "veg": true, "rating": 4.1, "description": "Creamy white sauce pasta"}
+      ]
+    },
+    {
+      "restaurant_id": "REST002",
+      "items": [
+        {"name": "Chicken Biryani", "price": 280, "veg": false, "rating": 4.6, "description": "Hyderabadi style"},
+        {"name": "Veg Biryani", "price": 220, "veg": true, "rating": 4.3, "description": "Mixed vegetables biryani"},
+        {"name": "Mutton Biryani", "price": 380, "veg": false, "rating": 4.7, "description": "Tender mutton pieces"},
+        {"name": "Raita", "price": 40, "veg": true, "rating": 4.0, "description": "Yogurt with spices"}
+      ]
+    },
+    {
+      "restaurant_id": "REST003",
+      "items": [
+        {"name": "Whopper", "price": 189, "veg": false, "rating": 4.4, "description": "Signature flame-grilled"},
+        {"name": "Veg Whopper", "price": 169, "veg": true, "rating": 4.2, "description": "Vegetarian delight"},
+        {"name": "French Fries", "price": 99, "veg": true, "rating": 4.3, "description": "Crispy golden fries"},
+        {"name": "Chicken Wings", "price": 149, "veg": false, "rating": 4.5, "description": "6 pieces spicy wings"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,387 @@
+# ===== SWIGGY AI CHATBOT - GITIGNORE =====
+
+# ===== LARGE MODEL FILES (CRITICAL - Don't Upload to GitHub) =====
+# AI Model files are 700MB - 4GB, GitHub max is 100MB
+models/*.gguf
+models/*.bin
+models/*.pt
+models/*.pth
+models/*.safetensors
+*.gguf
+*.bin
+
+# Keep models folder but not contents
+!models/.gitkeep
+
+# ===== PYTHON =====
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# ===== VIRTUAL ENVIRONMENTS =====
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+virtualenv/
+
+# ===== DATA FILES (Potentially Sensitive) =====
+# Conversation logs might contain user data
+data/conversations.json
+data/conversations_*.json
+data/user_data.json
+data/analytics.json
+
+# Backup files
+data/*.backup
+data/*.bak
+data/*_backup.json
+
+# Keep data folder structure
+!data/.gitkeep
+!data/restaurants.json
+!data/orders.json
+!data/menu.json
+
+# Empty conversations file is OK
+!data/conversations_empty.json
+
+# ===== ENVIRONMENT VARIABLES =====
+.env
+.env.local
+.env.*.local
+.envrc
+*.env
+
+# ===== IDE & EDITOR FILES =====
+# VSCode
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# PyCharm
+.idea/
+.idea/*
+*.iml
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.*.swp
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Rope
+.ropeproject
+
+# ===== OPERATING SYSTEM FILES =====
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+# ===== LOGS & TEMPORARY FILES =====
+*.log
+*.tmp
+*.temp
+logs/
+*.pid
+*.seed
+*.pid.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===== TESTING & ANALYTICS =====
+.coverage
+htmlcov/
+test-results/
+coverage/
+*.cover
+test_output/
+screenshots/
+test_reports/
+
+# Analytics generated files
+analytics/
+reports/
+chatbot_analytics.png
+*.png
+*.jpg
+*.jpeg
+
+# Keep example images
+!assets/*.png
+!assets/*.jpg
+!frontend/assets/*.png
+
+# ===== CACHE & TEMPORARY =====
+*.cache
+.cache/
+.temp/
+temp/
+tmp/
+cache/
+
+# Python cache
+__pycache__/
+*.pyc
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ===== DEPLOYMENT FILES =====
+# Deployment configs (may contain secrets)
+.deployment
+deploy_config.json
+secrets.json
+credentials.json
+
+# Docker (if using)
+docker-compose.override.yml
+.dockerignore
+
+# ===== BACKEND SPECIFIC =====
+# Database files (if using SQLite)
+*.db
+*.sqlite
+*.sqlite3
+
+# Session files
+flask_session/
+sessions/
+
+# ===== FRONTEND SPECIFIC =====
+# Node modules (if using npm)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build outputs
+frontend/dist/
+frontend/build/
+public/build/
+
+# ===== DOCUMENTATION =====
+# Generated docs
+site/
+_site/
+.grunt/
+.jekyll-cache/
+.jekyll-metadata
+
+# ===== MISCELLANEOUS =====
+# Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Backup files
+*.bak
+*.backup
+*~
+*.orig
+
+# Sensitive data
+secrets/
+private/
+confidential/
+
+# Large files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wav
+*.mp3
+
+# ===== PROJECT SPECIFIC =====
+# Custom excluded files
+experiments/
+sandbox/
+scratch/
+notes.txt
+todo.txt
+TODO.md
+
+# Old versions
+old/
+archive/
+deprecated/
+
+# Performance profiling
+*.prof
+profile_results/
+
+# ===== KEEP THESE FILES =====
+# Important: Use ! to negate ignore
+!.gitignore
+!README.md
+!LICENSE
+!requirements.txt
+!Procfile
+!runtime.txt
+!.gitkeep
+
+# Keep example data
+!data/restaurants.json
+!data/orders.json
+!data/menu.json
+
+# Keep empty conversations template
+!data/conversations_template.json

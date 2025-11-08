@@ -1,0 +1,82 @@
+{
+  "restaurants": [
+    {
+      "id": "REST001",
+      "name": "Domino's Pizza",
+      "cuisine": "Pizza, Fast Food, Italian",
+      "rating": 4.2,
+      "delivery_time": "30 mins",
+      "city": "bangalore",
+      "area": "Koramangala",
+      "is_open": true,
+      "delivery_fee": 30,
+      "minimum_order": 200,
+      "image": "🍕"
+    },
+    {
+      "id": "REST002",
+      "name": "Biryani Blues",
+      "cuisine": "Biryani, North Indian, Mughlai",
+      "rating": 4.5,
+      "delivery_time": "45 mins",
+      "city": "bangalore",
+      "area": "Indiranagar",
+      "is_open": true,
+      "delivery_fee": 40,
+      "minimum_order": 150,
+      "image": "🍛"
+    },
+    {
+      "id": "REST003",
+      "name": "Burger King",
+      "cuisine": "Burgers, Fast Food, American",
+      "rating": 4.0,
+      "delivery_time": "25 mins",
+      "city": "bangalore",
+      "area": "Whitefield",
+      "is_open": true,
+      "delivery_fee": 30,
+      "minimum_order": 150,
+      "image": "🍔"
+    },
+    {
+      "id": "REST004",
+      "name": "Punjabi Rasoi",
+      "cuisine": "North Indian, Punjabi, Chinese",
+      "rating": 4.3,
+      "delivery_time": "40 mins",
+      "city": "bangalore",
+      "area": "BTM Layout",
+      "is_open": true,
+      "delivery_fee": 35,
+      "minimum_order": 200,
+      "image": "🍱"
+    },
+    {
+      "id": "REST005",
+      "name": "Udupi Garden",
+      "cuisine": "South Indian, Dosa, Idli",
+      "rating": 4.6,
+      "delivery_time": "20 mins",
+      "city": "bangalore",
+      "area": "Jayanagar",
+      "is_open": true,
+      "delivery_fee": 20,
+      "minimum_order": 100,
+      "image": "🥘"
+    },
+    {
+      "id": "REST006",
+      "name": "KFC",
+      "cuisine": "Fast Food, Chicken, Burgers",
+      "rating": 4.1,
+      "delivery_time": "35 mins",
+      "city": "bangalore",
+      "area": "MG Road",
+      "is_open": true,
+      "delivery_fee": 35,
+      "minimum_order": 200,
+      "image": "🍗"
+    }
+  ]
+}

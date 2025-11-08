@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Food Online from India's Best Food Delivery Service | Swiggy</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Basis+Grotesque+Pro:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== RESET & VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --swiggy-orange: #fc8019;
+            --swiggy-dark: #282c3f;
+            --swiggy-text: #3d4152;
+            --swiggy-light: #686b78;
+            --swiggy-border: #d4d5d9;
+            --swiggy-bg: #ffffff;
+            --swiggy-hover: #e46d0a;
+        }
+
+        body {
+            font-family: 'Basis Grotesque Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Arial, sans-serif;
+            color: var(--swiggy-text);
+            background: var(--swiggy-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HEADER (EXACT SWIGGY STYLE) ===== */
+        .header {
+            background: #fff;
+            box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        /* Swiggy Logo */
+        .swiggy-logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .swiggy-logo:hover {
+            transform: scale(1.02);
+        }
+
+        .swiggy-logo svg {
+            height: 49px;
+            width: 34px;
+        }
+
+        /* Location */
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 10px 0;
+        }
+
+        .location-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .location-label {
+            font-size: 13px;
+            color: var(--swiggy-light);
+            font-weight: 500;
+        }
+
+        .location-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--swiggy-dark);
+            border-bottom: 2px solid var(--swiggy-dark);
+            padding-bottom: 2px;
+        }
+
+        .location-icon {
+            color: var(--swiggy-orange);
+            font-size: 18px;
+        }
+
+        /* Navigation */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--swiggy-text);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: var(--swiggy-orange);
+        }
+
+        .nav-item i {
+            font-size: 18px;
+        }
+
+        .nav-badge {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background: var(--swiggy-orange);
+            color: white;
+            font-size: 9px;
+            padding: 2px 5px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        /* ===== HERO SECTION (EXACT SWIGGY) ===== */
+        .hero {
+            background: linear-gradient(rgba(231, 86, 23, 0.9), rgba(249, 92, 13, 0.975)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23fef5e7" width="1200" height="400"/></svg>');
+            padding: 60px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-left h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--swiggy-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-left h1 span {
+            color: var(--swiggy-orange);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--swiggy-light);
+            margin-bottom: 40px;
+        }
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            max-width: 550px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 20px 24px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .search-btn {
+            padding: 20px 36px;
+            background: var(--swiggy-orange);
+            color: rgb(223, 220, 220);
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: inherit;
+        }
+
+        .search-btn:hover {
+            background: var(--swiggy-hover);
+        }
+
+        /* Hero Image */
+        .hero-right {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .hero-main-image {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating-food {
+            position: absolute;
+            font-size: 60px;
+            animation: bounce-food 2s ease-in-out infinite;
+        }
+
+        .food-1 { top: 10%; left: -10%; animation-delay: 0s; }
+        .food-2 { top: 60%; right: -10%; animation-delay: 0.5s; }
+        .food-3 { bottom: 10%; left: 10%; animation-delay: 1s; }
+
+        @keyframes bounce-food {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        /* ===== WHAT'S ON YOUR MIND (CATEGORY SECTION) ===== */
+        .category-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--swiggy-dark);
+            margin-bottom: 36px;
+        }
+
+        .category-scroll {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scrollbar-width: none;
+        }
+
+        .category-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-item {
+            min-width: 144px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .category-item:hover {
+            transform: scale(1.05);
+        }
+
+        .category-icon {
+            width: 144px;
+            height: 180px;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .category-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--swiggy-dark);
+        }
+
+        /* ===== TOP RESTAURANTS ===== */
+        .restaurants-section {
+            padding: 60px 20px;
+            background: #f9f9f9;
+        }
+
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 36px;
+        }
+
+        .restaurant-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .restaurant-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .restaurant-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #fc8019 0%, #ff6b6b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .restaurant-offer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .restaurant-info {
+            padding: 16px;
+        }
+
+        .restaurant-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--swiggy-dark);
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .restaurant-cuisine {
+            font-size: 14px;
+            color: var(--swiggy-light);
+            margin-bottom: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .restaurant-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            background: #48c479;
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .delivery-time {
+            color: var(--swiggy-light);
+            font-weight: 500;
+        }
+
+        .cost {
+            color: var(--swiggy-light);
+            font-weight: 500;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 48px;
+            margin-top: 48px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .feature-icon {
+            font-size: 72px;
+            margin-bottom: 24px;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--swiggy-dark);
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            font-size: 16px;
+            color: var(--swiggy-light);
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #02060c;
+            color: #fff;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b3b3b3;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #b3b3b3;
+            font-size: 14px;
+        }
+
+        /* ===== CHAT WIDGET (INTEGRATED) ===== */
+        .chat-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 380px;
+            height: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 9999;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .chat-widget.show {
+            display: flex;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #fc8019 0%, #e46d0a 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .chat-avatar {
+            width: 46px;
+            height: 46px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .chat-title h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .chat-status {
+            font-size: 13px;
+            opacity: 0.95;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #48c479;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        .chat-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .chat-controls button {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .chat-controls button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .quick-actions {
+            padding: 14px;
+            background: #f9f9f9;
+            border-bottom: 1px solid #efefef;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+        }
+
+        .quick-actions::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .quick-btn {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .quick-btn:hover {
+            background: var(--swiggy-orange);
+            color: white;
+            border-color: var(--swiggy-orange);
+            transform: translateY(-2px);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #fafafa;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #d0d0d0;
+            border-radius: 3px;
+        }
+
+        .message {
+            margin-bottom: 16px;
+            display: flex;
+            animation: messageSlide 0.3s ease;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .message.bot .message-avatar {
+            background: linear-gradient(135deg, #fc8019, #e46d0a);
+            color: white;
+            margin-right: 10px;
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            margin-left: 10px;
+            order: 2;
+        }
+
+        .message-content {
+            max-width: 70%;
+        }
+
+        .message-bubble {
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .message.bot .message-bubble {
+            background: white;
+            color: var(--swiggy-text);
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .message.user .message-bubble {
+            background: linear-gradient(135deg, #fc8019, #e46d0a);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message-time {
+            font-size: 11px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .typing-indicator {
+            padding: 0 20px 10px;
+            display: none;
+        }
+
+        .typing-indicator.active {
+            display: block;
+        }
+
+        .typing-dots {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dots span:nth-child(1) { animation-delay: 0s; }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-6px); opacity: 1; }
+        }
+
+        .chat-input-area {
+            padding: 16px;
+            background: white;
+            border-top: 1px solid #efefef;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .voice-btn {
+            width: 42px;
+            height: 42px;
+            background: white;
+            border: 2px solid var(--swiggy-orange);
+            border-radius: 50%;
+            color: var(--swiggy-orange);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .voice-btn:hover {
+            background: var(--swiggy-orange);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .voice-btn.listening {
+            background: #ff0000;
+            border-color: #ff0000;
+            color: white;
+            animation: pulse-voice 1s infinite;
+        }
+
+        @keyframes pulse-voice {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(255, 0, 0, 0.2); }
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 18px;
+            border: 1px solid #e0e0e0;
+            border-radius: 24px;
+            font-size: 14px;
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: var(--swiggy-orange);
+        }
+
+        .send-btn {
+            width: 42px;
+            height: 42px;
+            background: var(--swiggy-orange);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .send-btn:hover {
+            background: var(--swiggy-hover);
+            transform: scale(1.1);
+        }
+
+        .send-btn:active {
+            transform: scale(0.95);
+        }
+
+        .chat-footer-text {
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        /* Floating Chat Button */
+        .floating-chat-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 68px;
+            height: 68px;
+            background: linear-gradient(135deg, #fc8019, #e46d0a);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(252, 128, 25, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9998;
+            transition: all 0.3s;
+            animation: float-btn 3s ease-in-out infinite;
+        }
+
+        @keyframes float-btn {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-chat-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(252, 128, 25, 0.5);
+        }
+
+        .floating-chat-btn.hidden {
+            display: none;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            width: 68px;
+            height: 68px;
+            border: 3px solid var(--swiggy-orange);
+            border-radius: 50%;
+            animation: pulse-ring 1.5s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-left h1 {
+                font-size: 32px;
+            }
+
+            .hero-right {
+                display: none;
+            }
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .nav-item span {
+                display: none;
+            }
+
+            .restaurant-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 20px;
+            }
+
+            .chat-widget {
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                right: 0;
+                border-radius: 0;
+            }
+
+            .chat-header {
+                border-radius: 0;
+            }
+
+            .chat-input-area {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <!-- Swiggy Logo (SVG) -->
+                <div class="swiggy-logo">
+                    <svg viewBox="0 0 559 825" height="49" width="34" fill="#fc8019">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M542.92 388.542C546.805 366.526 542.355 349.598 530.881 340.76C513.621 327.466 487.698 320.236 425.954 320.236C380.271 320.236 331.225 320.286 310.268 320.275C308.322 319.894 301.285 317.604 301.02 309.112L300.734 174.289C300.727 165.779 307.531 158.857 315.943 158.839C324.369 158.825 331.204 165.723 331.211 174.226C331.211 174.226 331.421 247.414 331.441 273.424C331.441 275.936 332.892 281.8 338.549 283.328C375.43 293.267 561.865 285.999 558.967 251.804C543.147 109.96 424.476 0 280.394 0C235.021 0 192.065 10.9162 154.026 30.2754C62.9934 77.5955 -1.65904 173.107 0.0324268 283.43C1.23215 361.622 52.2203 500.605 240.286 500.605C365.221 500.605 480.796 500.623 541.892 500.705C551.29 500.719 559.228 492.897 559.41 483.688C560.061 450.766 563.643 378.967 542.92 388.542Z" fill="#FC8019"/>
+                    </svg>
+                </div>
+
+                <!-- Location -->
+                <div class="location">
+                    <i class="fas fa-map-marker-alt location-icon"></i>
+                    <div class="location-text">
+                        <div class="location-label">Deliver to</div>
+                        <div class="location-name">Bangalore <i class="fas fa-chevron-down" style="font-size: 12px;"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-percent"></i>
+                    <span>Offers</span>
+                    <span class="nav-badge">NEW</span>
+                </a>
+                <a href="#" class="nav-item" onclick="openChat(); return false;">
+                    <i class="fas fa-headset"></i>
+                    <span>Help</span>
+                    <span class="nav-badge">AI</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Sign In</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-left">
+                <h1>Order food & groceries. Delivered to your door. <span>🍔</span></h1>
+                <p class="hero-subtitle">Get your favorite food delivered from 1000+ restaurants near you</p>
+                
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Enter your delivery location">
+                    <button class="search-btn">FIND FOOD</button>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-image-container">
+                    <!-- Main Food Image (Using emoji as placeholder) -->
+                    <div class="hero-main-image" style="font-size: 300px; text-align: center;">
+                        🍕
+                    </div>
+                    
+                    <!-- Floating Food Items -->
+                    <div class="floating-food food-1">🍔</div>
+                    <div class="floating-food food-2">🍜</div>
+                    <div class="floating-food food-3">🥗</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's on your mind? -->
+    <section class="category-section">
+        <div class="container">
+            <h2 class="section-title">What's on your mind?</h2>
+            <div class="category-scroll">
+                <div class="category-item">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #ffeaa7, #fdcb6e);">🍕</div>
+                    <div class="category-name">Pizza</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #fab1a0, #ff7675);">🍔</div>
+                    <div class="category-name">Burgers</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #81ecec, #00b894);">🍜</div>
+                    <div class="category-name">Noodles</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #a29bfe, #6c5ce7);">🍛</div>
+                    <div class="category-name">Biryani</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #fd79a8, #e84393);">🍰</div>
+                    <div class="category-name">Cakes</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #55efc4, #00b894);">🥗</div>
+                    <div class="category-name">Salad</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #74b9ff, #0984e3);">🍦</div>
+                    <div class="category-name">Ice Cream</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #dfe6e9, #b2bec3);">☕</div>
+                    <div class="category-name">Coffee</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Restaurants -->
+    <section class="restaurants-section">
+        <div class="container">
+            <h2 class="section-title">Top restaurant chains in Bangalore</h2>
+            <div class="restaurant-grid">
+                <!-- Restaurant Card 1 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-image">
+                        🍕
+                        <div class="restaurant-offer">50% OFF UPTO ₹100</div>
+                    </div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Domino's Pizza</div>
+                        <div class="restaurant-cuisine">Pizzas, Italian, Pastas</div>
+                        <div class="restaurant-meta">
+                            <div class="rating">⭐ 4.3</div>
+                            <div class="delivery-time">30-35 mins</div>
+                            <div class="cost">₹400 for two</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant Card 2 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-image" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                        🍔
+                        <div class="restaurant-offer">20% OFF UPTO ₹50</div>
+                    </div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Burger King</div>
+                        <div class="restaurant-cuisine">Burgers, American</div>
+                        <div class="restaurant-meta">
+                            <div class="rating">⭐ 4.2</div>
+                            <div class="delivery-time">25-30 mins</div>
+                            <div class="cost">₹350 for two</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant Card 3 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-image" style="background: linear-gradient(135deg, #f39c12, #d68910);">
+                        🍛
+                        <div class="restaurant-offer">₹125 OFF ABOVE ₹199</div>
+                    </div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Biryani Blues</div>
+                        <div class="restaurant-cuisine">Biryani, North Indian, Mughlai</div>
+                        <div class="restaurant-meta">
+                            <div class="rating">⭐ 4.5</div>
+                            <div class="delivery-time">40-45 mins</div>
+                            <div class="cost">₹500 for two</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant Card 4 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-image" style="background: linear-gradient(135deg, #16a085, #138d75);">
+                        🥗
+                        <div class="restaurant-offer">30% OFF UPTO ₹75</div>
+                    </div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Freshly Bowl</div>
+                        <div class="restaurant-cuisine">Healthy Food, Salads, Beverages</div>
+                        <div class="restaurant-meta">
+                            <div class="rating">⭐ 4.4</div>
+                            <div class="delivery-time">20-25 mins</div>
+                            <div class="cost">₹300 for two</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant Card 5 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-image" style="background: linear-gradient(135deg, #8e44ad, #71368a);">
+                        🍜
+                        <div class="restaurant-offer">ITEMS AT ₹99</div>
+                    </div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Chinese Wok</div>
+                        <div class="restaurant-cuisine">Chinese, Asian, Tibetan</div>
+                        <div class="restaurant-meta">
+                            <div class="rating">⭐ 4.1</div>
+                            <div class="delivery-time">35-40 mins</div>
+                            <div class="cost">₹400 for two</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant Card 6 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-image" style="background: linear-gradient(135deg, #e67e22, #ca6f1e);">
+                        ☕
+                        <div class="restaurant-offer">FREE DELIVERY</div>
+                    </div>
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Starbucks Coffee</div>
+                        <div class="restaurant-cuisine">Cafe, Beverages, Desserts</div>
+                        <div class="restaurant-meta">
+                            <div class="rating">⭐ 4.6</div>
+                            <div class="delivery-time">15-20 mins</div>
+                            <div class="cost">₹600 for two</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why choose Swiggy?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Lightning Fast Delivery</h3>
+                    <p class="feature-desc">Experience Swiggy's superfast delivery for food delivered fresh & on time</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3 class="feature-title">Live Order Tracking</h3>
+                    <p class="feature-desc">Know where your order is at all times, from the restaurant to your doorstep</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3 class="feature-title">Wide Variety</h3>
+                    <p class="feature-desc">Choose from 1000+ restaurants & a variety of cuisines near you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Swiggy Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="#">Partner with us</a></li>
+                    <li><a href="#">Ride with us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Refund & Cancellation</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>We deliver to</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Bangalore</a></li>
+                    <li><a href="#">Mumbai</a></li>
+                    <li><a href="#">Delhi</a></li>
+                    <li><a href="#">Hyderabad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 Swiggy AI Chatbot Demo. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div id="chatWidget" class="chat-widget">
+        <div class="chat-header">
+            <div class="chat-header-left">
+                <div class="chat-avatar">🤖</div>
+                <div class="chat-title">
+                    <h4>Swiggy AI Assistant</h4>
+                    <div class="chat-status">
+                        <span class="status-dot"></span>
+                        Always Available
+                    </div>
+                </div>
+            </div>
+            <div class="chat-controls">
+                <button onclick="minimizeChat()" title="Minimize"><i class="fas fa-minus"></i></button>
+                <button onclick="closeChat()" title="Close"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <button class="quick-btn" onclick="quickMessage('Track my order')">📦 Track Order</button>
+            <button class="quick-btn" onclick="quickMessage('Show pizza restaurants')">🍕 Pizza</button>
+            <button class="quick-btn" onclick="quickMessage('Show biryani places')">🍛 Biryani</button>
+            <button class="quick-btn" onclick="quickMessage('Popular restaurants')">⭐ Popular</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <div class="message-bubble">
+                        👋 Welcome to Swiggy! I'm your AI assistant.<br><br>
+                        I can help you with:<br>
+                        • 📦 Track your orders<br>
+                        • 🍴 Find restaurants<br>
+                        • 📋 Browse menus<br>
+                        • 💰 Refund queries<br><br>
+                        How can I help you today?
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator">
+            <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <div class="input-container">
+                <button class="voice-btn" id="voiceBtn" onclick="toggleVoice()" title="Voice Input">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your message or order ID..." autocomplete="off">
+                <button class="send-btn" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="chat-footer-text">
+                🎤 Voice enabled • Powered by https://github.com/AbhiiBitStorm
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Chat Button -->
+    <button id="floatingBtn" class="floating-chat-btn" onclick="openChat()">
+        <span class="pulse-ring"></span>
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // ===== CONFIGURATION =====
+        const API_URL = 'http://localhost:8000';
+        let sessionId = 'session_' + Date.now();
+        let isTyping = false;
+        let recognition = null;
+        let isListening = false;
+
+        // ===== CHAT FUNCTIONS =====
+        function openChat() {
+            document.getElementById('chatWidget').classList.add('show');
+            document.getElementById('floatingBtn').classList.add('hidden');
+            document.getElementById('chatInput').focus();
+        }
+
+        function closeChat() {
+            document.getElementById('chatWidget').classList.remove('show');
+            document.getElementById('floatingBtn').classList.remove('hidden');
+        }
+
+        function minimizeChat() {
+            closeChat();
+        }
+
+        function quickMessage(msg) {
+            document.getElementById('chatInput').value = msg;
+            sendMessage();
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message || isTyping) return;
+            
+            input.value = '';
+            addMessage(message, 'user');
+            showTyping();
+            
+            const startTime = Date.now();
+            
+            try {
+                const response = await fetch(`${API_URL}/chat`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: message,
+                        session_id: sessionId
+                    })
+                });
+                
+                if (!response.ok) throw new Error('API Error');
+                
+                const data = await response.json();
+                const responseTime = ((Date.now() - startTime) / 1000).toFixed(2);
+                
+                hideTyping();
+                addMessage(data.response, 'bot', responseTime);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                hideTyping();
+                addMessage('⚠️ Connection error. Please check if server is running on port 8000.', 'bot');
+            }
+        }
+
+        function addMessage(text, sender, responseTime = null) {
+            const container = document.getElementById('chatMessages');
+            
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${sender}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.innerHTML = sender === 'bot' ? '🤖' : '👤';
+            
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            
+            const bubble = document.createElement('div');
+            bubble.className = 'message-bubble';
+            bubble.innerHTML = formatMessage(text);
+            
+            const time = document.createElement('div');
+            time.className = 'message-time';
+            time.innerHTML = getCurrentTime() + (responseTime ? ` • ⚡ ${responseTime}s` : '');
+            
+            content.appendChild(bubble);
+            content.appendChild(time);
+            msgDiv.appendChild(avatar);
+            msgDiv.appendChild(content);
+            
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function formatMessage(text) {
+            text = text.replace(/\n/g, '<br>');
+            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            text = text.replace(/(ORD\d{6})/g, '<span style="color: #fc8019; font-weight: bold;">$1</span>');
+            text = text.replace(/₹(\d+)/g, '<strong>₹$1</strong>');
+            return text;
+        }
+
+        function showTyping() {
+            isTyping = true;
+            document.getElementById('typingIndicator').classList.add('active');
+            document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+        }
+
+        function hideTyping() {
+            isTyping = false;
+            document.getElementById('typingIndicator').classList.remove('active');
+        }
+
+        function getCurrentTime() {
+            return new Date().toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit' 
+            });
+        }
+
+        // ===== VOICE INPUT =====
+        function initVoice() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.lang = 'en-IN';
+                
+                recognition.onstart = () => {
+                    isListening = true;
+                    document.getElementById('voiceBtn').classList.add('listening');
+                    document.getElementById('voiceBtn').innerHTML = '<i class="fas fa-stop-circle"></i>';
+                };
+                
+                recognition.onresult = (event) => {
+                    const transcript = event.results[0][0].transcript;
+                    document.getElementById('chatInput').value = transcript;
+                    setTimeout(() => sendMessage(), 500);
+                };
+                
+                recognition.onerror = () => stopListening();
+                recognition.onend = () => stopListening();
+                
+                return true;
+            }
+            return false;
+        }
+
+        function toggleVoice() {
+            if (!recognition && !initVoice()) {
+                alert('Voice input not supported. Use Chrome/Edge browser.');
+                return;
+            }
+            
+            if (isListening) {
+                recognition.stop();
+            } else {
+                recognition.start();
+            }
+        }
+
+        function stopListening() {
+            isListening = false;
+            const btn = document.getElementById('voiceBtn');
+            btn.classList.remove('listening');
+            btn.innerHTML = '<i class="fas fa-microphone"></i>';
+        }
+
+        // ===== ENTER KEY HANDLER =====
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('chatInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+        });
+
+        // ===== TEST SERVER CONNECTION =====
+        async function testConnection() {
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                if (response.ok) {
+                    console.log('✅ Server connected');
+                } else {
+                    console.warn('⚠️ Server health check failed');
+                }
+            } catch (error) {
+                console.error('❌ Server not running. Start with: python app.py');
+            }
+        }
+
+        window.addEventListener('load', testConnection);
+    </script>
+</body>
+</html>
